@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #300383;
+  font-family: sans-serif;
+}
+
+.conteiner{
+  width: 750px;
+  margin: 0 auto;
+  background-color: rgb(67, 25, 83);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+#group-btn{
+  display: flex;
+  width: 100%;
+}
+#group-btn > button > img{
+  width: 100%;
+}
+#userImg, #pcImg{
+  width: 30%;
+}
+#piedraPaTi, #ahorcado{
+  height: 50px;
+}
+/*# sourceMappingURL=body.css.map */

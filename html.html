@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minijuegos</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles/body.css" />
+  </head>
+
+  <body>
+    <!-- Boton de logueo -->
+    <div class="flex justify-center" id="loginContainer">
+      <button class="bg-blue-600 text-white rounded-md mt-2" style="height: 150px; max-width: 350px; width: 350px;" id="loginBtn" type="button">Ingresar</button>
+    </div>
+    <!--  -->
+
+    <!-- Menu de juegos -->
+    <div id="menu" class="w-full flex justify-evenly items-center pt-8 pb-4"></div>
+    <!--  -->
+    
+    <!-- Pantalla de juego -->
+      <div class="flex-col justify-center" id="game-mode"></div> 
+    </div>
+    <!--  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./users.js"></script>
+    <script src="./piedraPapelTijera.js"></script>
+    <script src="./ahorcado.js"></script>
+    <script src="./minijuegos.js"></script>
+  </body>
+</html>
