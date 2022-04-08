@@ -65,12 +65,11 @@
 const abc = "abcdefghijklmnñopqrstuvwxyz";
 const abcArray = [...abc];
 let palabra;
-let palabraArray = [];
-const letrasCorrectas = [];
+let palabraArray;
+let letrasCorrectas;
 let faltas = 0;
 let cuadroLetras;
 let pjName;
-
 const maxvidas = 6;
 const screenGame = document.getElementById("game-mode");
 
@@ -91,12 +90,23 @@ function hangman() {
       class="conteiner border-solid border-2 border-sky-500 rounded-md justify-between mb-4"
       id="screen-game"
     >
-      <div class="text-center text-sky-100 text-lg align-middle m-4">Intento <span id="fallos">${faltas}</span> de <span id="vidas"></span></div>
+      <div class="flex justify-between text-center text-sky-100 text-lg align-middle m-4">
+
+        <button type="button" class="bg-blue-600 text-white p-2 rounded-md m-2 justify-start" id="newWord" onClick="cambiarPalabra()">
+          Palabra nueva
+        </button>
+
+        <div class="text-left text-sky-100 text-lg align-middle m-4 justify-end">
+          Intento <span id="fallos">${faltas}</span> de <span id="vidas"></span>
+        </div>
+
+      </div>
       <div class="flex justify-center align-middle" style="height:282px" id="imgContainer"><img id="hangImg" src="./img/ahorcado/0.png"></div>
       <div class=" flex justify-center text-center font-bold text-2xl text-white p-4" id="msj">
       </div>
 
       <div class=" flex flex-wrap justify-center" id="group-btn">
+
       </div>
     </div>
   </div>`;
@@ -114,6 +124,31 @@ function hangman() {
       .then((data) => {
         palabra = data.body.Word;
         palabraArray = [...palabra];
+        if (palabraArray.length > 10) {
+          pjName.lost--;
+          cambiarPalabra();
+        }
+        for (i = 0; i <= palabraArray.length; i++) {
+          switch (palabraArray[i]) {
+            case "á":
+              palabraArray[i] = "a";
+              break;
+            case "é":
+              palabraArray[i] = "e";
+              break;
+            case "í":
+              palabraArray[i] = "i";
+              break;
+            case "ó":
+              palabraArray[i] = "o";
+              break;
+            case "ú":
+              palabraArray[i] = "u";
+              break;
+          }
+        }
+        console.log(palabraArray);
+        letrasCorrectas = [];
         palabraArray.forEach(() => {
           letrasCorrectas.push("");
         });
@@ -139,6 +174,12 @@ function hangman() {
     console.log(palabraArray);
   });
   generarTeclado();
+}
+
+function cambiarPalabra() {
+  pjName.lost++;
+  mantenerDatos;
+  mostrarInfoDeJuego(dataGames[0]);
 }
 
 function infoUser(nombre, users) {
